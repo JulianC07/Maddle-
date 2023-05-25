@@ -157,7 +157,7 @@ font-family: 'DynaPuff', cursive;
   }
   @keyframes zoom {
     0% {right: 0px; font-size: 100px; color: red;}
-    50% {font-size: 25px; color: black;}
+    50% {font-size: 25px; color: #2B2D42;}
     100% {font-size: 100px; left: 0px; color: red;}
     
   }
