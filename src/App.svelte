@@ -8,13 +8,13 @@
   let timerStatus = 'ended'
   let level = 1
   let score = 0
-  let duration = 5;
+  let duration = 60;
   let loser;
   function onTimerComplete () {
      timerStatus = 'ended'
     if (score >= targetCount) {
       level += 1
-      targetCount += 4+Math.round(Math.random()*8)
+      targetCount += 4+Math.round(Math.random()*14)
     } else {
       //level = 1
       //score = 0
