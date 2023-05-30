@@ -83,7 +83,7 @@ Score: {score}
 
 <style>
   main {
-    background-color: #2B2D42;
+    background-color: #2B2D43;
     color: white;
   }
 
