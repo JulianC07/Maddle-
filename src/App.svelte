@@ -149,6 +149,7 @@ animation-name: colors;
 animation-duration: 2s;
 animation-iteration-count: infinite;
     text-align: center;
+
   }
 
   .StartAgain {
@@ -188,5 +189,6 @@ animation-iteration-count: infinite;
     75% {color: green;}
     100% {color: red;}
   }
+
 
 </style>
