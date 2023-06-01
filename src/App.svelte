@@ -171,12 +171,14 @@ animation-iteration-count: infinite;
     border: 5px solid #8D99AE; 
   }
   .Loser {
+    positon: absolute;
     font-family: 'DynaPuff', cursive;
     animation-name: zoom;
     animation-duration: 3s;
     animation-iteration-count: infinite;
     bottom: 219px;
     font-size: 25px;
+       border: 5px solid #2B2D43; 
   }
   @keyframes zoom {
     0% {right: 0px; font-size: 100px; color: red;}
