@@ -10,11 +10,13 @@
   let score = 0
   let duration = 60;
   let loser;
+  let winner;
   function onTimerComplete () {
      timerStatus = 'ended'
     if (score >= targetCount) {
       level += 1
       targetCount += 4+Math.round(Math.random()*14)
+     winner = true;
     } else {
       //level = 1
       //score = 0
@@ -34,6 +36,7 @@
   function onStart () {
     duration += 1;
     timerStatus = 'running'
+    winner = false;
   }
 
   console.log('test change')
@@ -58,13 +61,18 @@
   </div>
   <br>
 <div class = "level"> Level: {level} </div>  
-  
+
   {#if loser}
+   
+
    <h1 class = "Loser"> YOU LOSE LOSER </h1>
 <button class = "StartAgain" on:click={resetGame}>Start over</button>
   {:else}
-    
+
     <div>
+      {#if winner}
+     <h1 class = "Winner"> Level Up! </h1>
+      {/if}
       {#key level}
       <LetterGrid onScore={scoreUp}
         onStart = {onStart}
@@ -72,7 +80,9 @@
       {/key}
     
     </div>
+
   {/if}
+
   <div class = "Target">
   Target: {targetCount}
 </div>
@@ -130,6 +140,17 @@ font-family: 'DynaPuff', cursive;
     border: 5px solid #8D99AE; 
   }
 
+  .Winner {
+  position: absolute;
+left: 590px;
+    margin-top: -100px;
+   border: 5px solid #2B2D43; 
+animation-name: colors;
+animation-duration: 2s;
+animation-iteration-count: infinite;
+    text-align: center;
+  }
+
   .StartAgain {
      text-decoration: none;
     color: #EDF2F4;
@@ -138,6 +159,7 @@ font-family: 'DynaPuff', cursive;
     background: black;
      border-radius: 10%;
       cursor: pointer;
+  
   }
   .Target {
         font-family: 'DynaPuff', cursive;
@@ -159,6 +181,12 @@ font-family: 'DynaPuff', cursive;
     0% {right: 0px; font-size: 100px; color: red;}
     50% {font-size: 25px; color: #2B2D42;}
     100% {font-size: 100px; left: 0px; color: red;}
-    
   }
+  @keyframes colors {
+    0% {color: red;}
+    50% {color: yellow;}
+    75% {color: green;}
+    100% {color: red;}
+  }
+
 </style>
