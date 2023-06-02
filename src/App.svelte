@@ -27,6 +27,7 @@
     level = 1;
     score = 0;
     loser = false;
+    targetCount = 4;
   }
   
   function scoreUp (number = 1) {
@@ -37,6 +38,7 @@
     duration += 1;
     timerStatus = 'running'
     winner = false;
+  
   }
 
   console.log('test change')

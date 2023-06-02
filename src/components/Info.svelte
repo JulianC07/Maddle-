@@ -19,7 +19,7 @@ let show = false;
 	</button>
 
   <div class="info" in:fly={{x:400,y:-400}}>
-• Welcome to my Word Game! The aim of the game is to make words under a certain amount of time. Each word counts as 1 point in the score. Don't try reusing the same word, it will not count as point since its already been used.
+• Welcome to Maddle! The aim of the game is to make words under a certain amount of time. Each word counts as 1 point in the score. Don't try reusing the same word, it will not count as point since its already been used.
 <br>
     <br>
 • Need to create a new word? Simply just click the reset button to use another word!
