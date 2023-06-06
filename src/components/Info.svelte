@@ -34,7 +34,7 @@ let show = false;
   • The bottom left corner also shows the word you are spelling.
     <br>
     <br>
-    •If you make enough words for the target score continue to make words, your score will carry over to the next level to help you out!
+    • If you make enough words for the target score continue to make words, your score will carry over to the next level to help you out!
 	</div>
 </div>
 {/if}
