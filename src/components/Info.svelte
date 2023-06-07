@@ -5,11 +5,11 @@ let show = false;
 
 <button on:click={()=>show=!show}>
 	{#if show}
-		Hide
+	
 	{:else}
-		Show
+		
 	{/if}
-	More Info
+	?
 </button>
 {#if show}
 <div class="fullscreen" in:fade out:fade>
@@ -22,7 +22,7 @@ let show = false;
 • Welcome to Maddle! The aim of the game is to make words under a certain amount of time. Each word counts as 1 point in the score. Don't try reusing the same word, it will not count as point since its already been used.
 <br>
     <br>
-• Need to create a new word? Simply just click the reset button to use another word!
+• Need to create a new word? Simply just click around the grid to use another word!
 <br>
 <br>
 • Once the timer ends the level will go up and reset the grid.
@@ -42,14 +42,15 @@ let show = false;
 
 <style>
 button {
-  width: 150px;
-  height: 70px;
+  width: 70px;
+  height: 50px;
   font-family: 'DynaPuff', cursive;
   background-color: #EDF2F4;
   color: #EF233C;
   font-size: 20px;
     text-decoration: none;
     cursor: pointer;
+font-size: 40px;
 }
 	.fullscreen {
 		position: fixed;
@@ -69,6 +70,7 @@ button {
 		box-shadow: 4px 4px #8D99AE;
 		width: 80vw;
 		height: 40vh;
+    text-align: left;
 		overflow-y: auto;
   font-family: 'DynaPuff', cursive;
     font-size: 25px;

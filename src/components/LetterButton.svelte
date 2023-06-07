@@ -21,8 +21,9 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap');
   button {
-    width: 100px;
-    height: 100px;
+    position: relative;
+    width: var(--button-size);
+    height: var(--button-size);
     font-family: 'DynaPuff', cursive;
     color: white;
     font-size: 30px;

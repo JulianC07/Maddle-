@@ -161,6 +161,10 @@ function getLetter () {
 </main>
 
 <style>
+  main {
+    --button-size: 100px;
+    position: relative;
+  }
 .row {
   display: flex;
   justify-content: center;
@@ -170,21 +174,26 @@ function getLetter () {
      border: 5px solid #8D99AE;
       font-family: 'DynaPuff', cursive;
        width: 250px;
-    font-size: 30px;
+    font-size: 25px;
     color: #D80032;
     background: #EDF2F4;
      border-radius: 10%;
+    margin: auto;
   
   }
   
   button {
- margin-top: 10px;
+ top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: calc(5*var(--button-size));
     text-decoration: none;
     color: #EDF2F4;
       font-family: 'DynaPuff', cursive;
-      font-size: 30px;
-    background: black;
-     border-radius: 10%;
+      font-size: 25px;
+    background: transparent;
+  border: none;
+    position: absolute;
       cursor: pointer;
 
   }

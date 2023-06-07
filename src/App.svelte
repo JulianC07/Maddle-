@@ -7,6 +7,7 @@
   let targetCount = 4
   let timerStatus = 'ended'
   let level = 1
+  let reset = 0
   let score = 0
   let duration = 60;
   let loser;
@@ -14,6 +15,7 @@
   function onTimerComplete () {
      timerStatus = 'ended'
     if (score >= targetCount) {
+      reset += 1
       level += 1
       targetCount += 4+Math.round(Math.random()*14)
      winner = true;
@@ -28,6 +30,8 @@
     score = 0;
     loser = false;
     targetCount = 4;
+    reset += 1 
+    duration = 60;
   }
   
   function scoreUp (number = 1) {
@@ -35,7 +39,8 @@
   }
 
   function onStart () {
-    duration += 1;
+    
+    duration = 60 - level;
     timerStatus = 'running'
     winner = false;
   
@@ -50,57 +55,74 @@
   
     
 <header>
-  Word Game
-  <Info/>
-</header>
   <h1>
-    Maddle
+   Maddle
   </h1>
   <h3>By Julian Castro</h3>
+</header>
+ 
 
-  <div>
-    <Timer duration={duration} status={timerStatus} onComplete={onTimerComplete}/>
-  </div>
-  <br>
-<div class = "level"> Level: {level} </div>  
-
-  {#if loser}
-   
-
-   <h1 class = "Loser"> YOU LOSE LOSER </h1>
-<button class = "StartAgain" on:click={resetGame}>Start over</button>
-  {:else}
-
+<div class = 'bar'>
+  <div class='left'>
     <div>
-      {#if winner}
-     <h1 class = "Winner"> Level Up! </h1>
-      {/if}
-      {#key level}
-      <LetterGrid onScore={scoreUp}
-        onStart = {onStart}
-        />
-      {/key}
-    
+
+     {#key reset} <Timer duration={duration} status={timerStatus} onComplete={onTimerComplete}/>{/key}
     </div>
-
-  {/if}
-
-  <div class = "Target">
+    <div class = "level"> Level: {level} </div>  
+  </div>
+  <div class='right'>
+    <div class = "Target">
   Target: {targetCount}
 </div>
     <div class= "scoreboard">
 Score: {score}
 </div>
+  </div>
+</div>
+  {#if loser}
+   
+
+   <h1 class = "Loser"> YOU LOSE LOSER </h1>
+<button class = "StartAgain" on:click={resetGame}>Start over</button>
+  {/if}
+
+    <div>
+      {#if winner}
+     <h1 class = "Winner"> Level Up! </h1>
+      {/if}
+      {#key reset}
+        <div class:invisible={loser}>
+        <LetterGrid onScore={scoreUp}
+          onStart = {onStart}
+          />
+        </div>
+      {/key}
+    
+    </div>
+
+  
+
+  <footer>
+    <Info/>
+  </footer>
 </main>
 
 <style>
+  .invisible {
+    visibility: hidden;
+  }
   main {
     background-color: #2B2D43;
     color: white;
   }
 
+  footer {
+    text-align: right;
+    padding: 8px;
+  }
+
   h1 {
-border-top: 5px solid #EDF2F4;
+
     text-align: center;
 font-family: 'DynaPuff', cursive;
     font-size: 60px;
@@ -110,21 +132,24 @@ font-family: 'DynaPuff', cursive;
   h3{
     text-align: center;
 color: #EF233C;
-border-bottom: 5px solid #EDF2F4;
+
 font-family: 'DynaPuff', cursive;
 
   }
   header {
     display: flex;
 	align-items:center;
-		justify-content:space-between;
-    color: #2B2D42;
+		justify-content: center;
+    flex-direction: column;
+    border-top: 5px solid #EDF2F4;
+    border-bottom: 5px solid #EDF2F4;
+    color: white;
     padding: 10px;
   }
     .scoreboard {
       font-family: 'DynaPuff', cursive;
     color: #D80032;
-    font-size: 30px;
+    font-size: 25px;
     border: 5px solid #8D99AE;
     width: 120px;
     padding: 5px;
@@ -135,7 +160,7 @@ font-family: 'DynaPuff', cursive;
 
   .level {
     font-family: 'DynaPuff', cursive;
-      font-size: 30px;
+      font-size: 25px;
     color: #8D99AE;
     background-color: #EDF2F4;
     width: 130px;
@@ -143,22 +168,32 @@ font-family: 'DynaPuff', cursive;
   }
 
   .Winner {
-  position: absolute;
-left: 590px;
-    margin-top: -100px;
-   border: 5px solid #2B2D43; 
+display: flex;
+justify-content: center;
+    margin-top: -82px;
+    margin-bottom: 20px;
+   border: none; 
 animation-name: colors;
 animation-duration: 2s;
 animation-iteration-count: infinite;
     text-align: center;
+    margin-left: 0px;
+    margin-right: 0px;
 
+  }
+
+  .bar {
+    display: flex;
+    height: 90px;
+    justify-content: space-between;
+    align-items: flex-start;
   }
 
   .StartAgain {
      text-decoration: none;
     color: #EDF2F4;
       font-family: 'DynaPuff', cursive;
-      font-size: 30px;
+      font-size: 25px;
     background: black;
      border-radius: 10%;
       cursor: pointer;
@@ -173,19 +208,22 @@ animation-iteration-count: infinite;
     border: 5px solid #8D99AE; 
   }
   .Loser {
-    positon: absolute;
+    position: absolute;
     font-family: 'DynaPuff', cursive;
     animation-name: zoom;
     animation-duration: 3s;
+    z-index: 10;
     animation-iteration-count: infinite;
     bottom: 219px;
-    font-size: 25px;
-       border: 5px solid #2B2D43; 
+    width: 100%;
+    text-align: center;
+    font-size: 100px;
+       border: none; 
   }
   @keyframes zoom {
-    0% {right: 0px; font-size: 100px; color: red;}
-    50% {font-size: 25px; color: #2B2D42;}
-    100% {font-size: 100px; left: 0px; color: red;}
+    0% {transform:scale(1); color: red;}
+    50% {transform: scale(0.25); color: #2B2D42;}
+    100% {transform:scale(1); color: red;}
   }
   @keyframes colors {
     0% {color: red;}
@@ -194,5 +232,10 @@ animation-iteration-count: infinite;
     100% {color: red;}
   }
 
+  @media screen and (max-width: 800px) {
+    h1,h3 {
+     
+    }
+  }
 
 </style>

@@ -50,7 +50,6 @@ start= window.performance.now();
 </script>
 
 <main>
- <div class ="status"> {status} </div>
     <div class ="time">
    Time left: {(duration - elapsed/1000).toFixed(2)}
   </div>
@@ -69,7 +68,7 @@ start= window.performance.now();
   }
   .time {
       font-family: 'DynaPuff', cursive;
-      font-size: 30px;
+      font-size: 25px;
     color: #8D99AE;
     background-color: #EDF2F4;
     width: 250px;
