@@ -71,11 +71,18 @@ start= window.performance.now();
       font-size: 25px;
     color: #8D99AE;
     background-color: #EDF2F4;
-    width: 250px;
+    width: 200px;
     border: 5px solid #8D99AE; 
   }
   .status {
   color:  #2B2D42;
   }
+    @media screen and (max-width: 800px) {
+     .time {
+        width: 138px;
+       font-size: 17px;
+      }
+    }
+  
 </style>
   

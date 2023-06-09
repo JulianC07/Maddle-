@@ -162,7 +162,7 @@ function getLetter () {
 
 <style>
   main {
-    --button-size: 100px;
+    --button-size: min(17vw,100px);
     position: relative;
   }
 .row {
@@ -188,7 +188,7 @@ function getLetter () {
     width: 100vw;
     height: calc(5*var(--button-size));
     text-decoration: none;
-    color: #EDF2F4;
+    color: #2B2D43;
       font-family: 'DynaPuff', cursive;
       font-size: 25px;
     background: transparent;

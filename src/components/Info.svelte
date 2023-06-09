@@ -42,12 +42,12 @@ let show = false;
 
 <style>
 button {
+
   width: 70px;
   height: 50px;
   font-family: 'DynaPuff', cursive;
   background-color: #EDF2F4;
   color: #EF233C;
-  font-size: 20px;
     text-decoration: none;
     cursor: pointer;
 font-size: 40px;
@@ -85,6 +85,16 @@ font-size: 40px;
 		right: 4px;
 		top: 4px;
 	}
+  @media screen and (max-width: 800px) {
+   button {
+   
+    
+      width: 40px;
+     height: 30px;
+     font-size: 20px;
 
+
+    }
+  }
 
 </style>

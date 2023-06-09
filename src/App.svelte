@@ -112,13 +112,19 @@ Score: {score}
     visibility: hidden;
   }
   main {
+    display: flex;
+    flex-direction: column;
     background-color: #2B2D43;
     color: white;
+    min-height: 100vh;
   }
 
   footer {
+margin-top: auto;
+
     text-align: right;
     padding: 8px;
+
   }
 
   h1 {
@@ -154,7 +160,7 @@ font-family: 'DynaPuff', cursive;
     width: 120px;
     padding: 5px;
     background: #EDF2F4;
-    border-radius: 10%;
+    
   
   }
 
@@ -220,6 +226,7 @@ animation-iteration-count: infinite;
     font-size: 100px;
        border: none; 
   }
+
   @keyframes zoom {
     0% {transform:scale(1); color: red;}
     50% {transform: scale(0.25); color: #2B2D42;}
@@ -233,9 +240,33 @@ animation-iteration-count: infinite;
   }
 
   @media screen and (max-width: 800px) {
-    h1,h3 {
-     
+   
+    h1 {
+     font-size: 25px;
+    
     }
+    h3{
+      font-size: 15px;
+    }
+    .level {
+      font-size: 17px;
+      width: 80px;
+    }
+    .Target {
+      font-size: 17px;
+    } 
+    .scoreboard {
+      font-size: 17px;
+    }
+  .Winner {
+display: flex;
+justify-content: center;
+    margin-top: 0px;
+
+    }
+  footer {
+   padding-bottom: 5px;
+  }
   }
 
 </style>
