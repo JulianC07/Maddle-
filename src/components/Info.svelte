@@ -87,8 +87,11 @@ font-size: 40px;
 	}
   @media screen and (max-width: 800px) {
    button {
-   
-    
+     position: fixed;
+     right: 5px;
+     bottom: 5px;
+   display: grid;
+     place-content: center;
       width: 40px;
      height: 30px;
      font-size: 20px;

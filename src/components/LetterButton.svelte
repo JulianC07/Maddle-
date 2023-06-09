@@ -32,7 +32,8 @@
     transition-duration: 0.4s;
     background-color: #2B2D42;
       cursor: pointer;
-
+    display: grid;
+    place-content: center;
     
     
   }
